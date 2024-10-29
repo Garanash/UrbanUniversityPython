@@ -2,8 +2,7 @@ import inspect
 
 
 def introspection_info(obj):
-    info = {'type': type(obj).__name__, 'attributes': [], 'methods': [], 'module': obj.__module__,
-            'docstring': inspect.getdoc(obj)}
+    info = {'type': type(obj).__name__, 'attributes': [], 'methods': [], 'module': obj.__module__, 'docstring': inspect.getdoc(obj)}
 
     info['attributes'] = [attr for attr in dir(obj) if not callable(getattr(obj, attr)) and not attr.startswith('__')]
 
