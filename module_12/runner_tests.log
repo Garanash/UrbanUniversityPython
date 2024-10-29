@@ -1,0 +1,16 @@
+2024-10-29 12:00:59,889 | WARNING | Неверный тип данных для объекта Runner
+Traceback (most recent call last):
+  File "/Users/andreydolgov/UrbanUniversityPython/module_12/tests_12_4.py", line 71, in test_run
+    running_runner = Runner(5)
+                     ^^^^^^^^^
+  File "/Users/andreydolgov/UrbanUniversityPython/module_12/tests_12_4.py", line 10, in __init__
+    raise TypeError(f'Имя может быть только числом, передано {type(name).__name__}')
+TypeError: Имя может быть только числом, передано int
+2024-10-29 12:00:59,889 | WARNING | Неверная скорость для Runner
+Traceback (most recent call last):
+  File "/Users/andreydolgov/UrbanUniversityPython/module_12/tests_12_4.py", line 61, in test_walk
+    walking_runner = Runner('Petya', -3)
+                     ^^^^^^^^^^^^^^^^^^^
+  File "/Users/andreydolgov/UrbanUniversityPython/module_12/tests_12_4.py", line 15, in __init__
+    raise ValueError(f'Скорость не может быть отрицательной, сейчас {speed}')
+ValueError: Скорость не может быть отрицательной, сейчас -3
