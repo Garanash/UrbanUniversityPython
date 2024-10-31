@@ -1,23 +1,28 @@
-import fastapi
+import uvicorn
+from fastapi import FastAPI
 
-app = fastapi.FastAPI()
+app = FastAPI()
 
 
 @app.get('/')
-async def main() -> dict:
-    return {"message": "main page"}
+async def root_route() -> str:
+    return 'Главная страница'
 
 
-@app.get('/admin')
-async def admin() -> dict:
-    return {"message": "Вы вошли как администратор"}
+@app.get('/user/admin')
+async def path_route() -> str:
+    return 'Вы вошли как администратор'
 
 
-@app.get("/user/{user_id}")
-async def count_user(user_id) -> dict:
-    return {"message": f"user number {user_id}"}
+@app.get('/user/{user_id}')
+async def parameter_route(user_id) -> str:
+    return f'Вы вошли как пользователь № {user_id}'
 
 
-@app.get("/user")
-async def userinfo(user_name: str = 'None', user_age: int = 0) -> dict:
-    return {"message": f"user name: {user_name} number {user_age}"}
+@app.get('/user')
+async def query_route(username='NoName', age='NoAge') -> str:
+    return f'Информация о пользователе. Имя: {username}, Возраст: {age}'
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="localhost", port=8000)
