@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Сайт газеты</title>
+</head>
+<body>
+    <h1>Коллектив</h1>
+    {% for key, value in team.items %}
+        <p>{{ key }} – {{ value }}</p>
+    {% endfor %}
+    <button><a href="/newspaper">Вернуться обратно</a></button>
+</body>
+</html>

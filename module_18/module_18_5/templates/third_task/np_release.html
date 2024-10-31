@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Сайт газеты</title>
+</head>
+<body>
+    <h1>Выпуски</h1>
+    <ul>
+        {% for release in releases %}
+            <li>{{ release }}<button>Читать</button></li>
+        {% endfor %}
+    </ul>
+    <button><a href="/newspaper">Вернуться обратно</a></button>
+</body>
+</html>

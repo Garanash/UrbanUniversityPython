@@ -1,0 +1,21 @@
+{% extends "np_menu.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Сайт газеты</title>
+</head>
+<body>
+    {% block pagename %}
+    <h1>{{ title }}</h1>
+    {% endblock %}
+
+    {% block menu %}
+    {{ block.super }}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Сайт газеты</title>
+</head>
+<body>
+    {% block pagename %}
+    <h1>Имя страницы</h1>
+    {% endblock %}
+
+    {% block menu %}
+    <h3><a href="/newspaper">Главная</a></h3>
+    <h3><a href="/release">Выпуски</a></h3>
+    <h3><a href="/team">Коллектив</a></h3>
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
