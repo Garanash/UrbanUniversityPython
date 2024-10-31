@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    {% block menu %}
+    {{ block.super }}
+    <h3><a href="/signup">Регистрация</a></h3>
+    {% endblock %}
+</body>
+</html>

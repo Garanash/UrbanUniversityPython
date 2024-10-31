@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+</head>
+<body>
+
+{% block content %}
+  <h2>Список игр:</h2>
+  <div class="row">
+  {% for post in page_obj %}
+    <div class="col-md-4">
+      <h4>{{ post.title }}</h4>
+      <p>Описание: {{ post.description }}</p>
+      <p>Стоимость: {{ post.cost }}</p>
+    </div>
+  {% endfor %}
+
+    <form method="get">
+        <label for="items_per_page">Items per page:</label>
+        <select name="items_per_page" id="items_per_page" onchange="this.form.submit()">
+            <option value="5" {% if items_per_page == '5' %}selected{% endif %}>5</option>
+            <option value="10" {% if items_per_page == '10' %}selected{% endif %}>10</option>
+            <option value="20" {% if items_per_page == '20' %}selected{% endif %}>20</option>
+            <option value="50" {% if items_per_page == '50' %}selected{% endif %}>50</option>
+        </select>
+    </form>
+
+    <ul class="pagination">
+        {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}&items_per_page={{ items_per_page }}">Назад</a></li>
+        {% else %}
+            <li><span>Previous</span></li>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+                <li class="active"><a href="?page={{ num }}&items_per_page={{ items_per_page }}">{{ num }}</a></li>
+            {% else %}
+                <li><a href="?page={{ num }}&items_per_page={{ items_per_page }}">{{ num }}</a></li>
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}&items_per_page={{ items_per_page }}">Next</a></li>
+        {% else %}
+            <li><span>Далее</span></li>
+        {% endif %}
+    </ul>
+{% endblock %}
+</div>
+</body>
+</html>

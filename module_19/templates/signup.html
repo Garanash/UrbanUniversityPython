@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    {% block content %}
+    {% if not username %}
+        <h3>{{ error }}</h3>
+        <form method="post">
+            {% csrf_token %}
+            <label for="username">Введите логин</label>
+            <input type="text" id="username" name="username" maxlength="30" required>
+
+            <label for="balance">Введите депозит</label>
+            <input type="text" id="balance" name="balance" maxlength="5" required>
+
+            <label for="age">Введите свой возраст</label>
+            <input type="text" id="age" name="age" maxlength="3" required>
+
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+    {% else %}
+        <h3>Приветствуем, {{ username }}</h3>
+    {% endif %}
+    {% endblock %}
+
+</body>
+</html>
